@@ -1,0 +1,1874 @@
+        <button class="collapsible">🔧 Hands-On Practice Guide</button>
+        <div class="content">
+            <div class="content-inner">
+                <div class="tip">
+                    <strong>💡 How to Use This Guide:</strong> Complete exercises in order. Each builds on previous skills. Practice on LOW VOLTAGE training breakers first (120V max). Record your results in a notebook. Expected times included for self-assessment.
+                </div>
+
+                <h3>Practice Exercise 1: Basic Contact Timing</h3>
+                <div class="step">
+                    <strong>Objective:</strong> Measure opening and closing time using manual operation
+                    <p><strong>Equipment Needed:</strong></p>
+                    <ul>
+                        <li>ACTAS C24 unit with power supply</li>
+                        <li>Red and black test leads (basic set)</li>
+                        <li>120V training breaker or de-energized MCCB</li>
+                        <li>Safety glasses and gloves</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <strong>Step-by-Step Procedure:</strong>
+                    <ol>
+                        <li><strong>Setup (5 minutes):</strong>
+                            <ul>
+                                <li>Place ACTAS on stable table, power ON</li>
+                                <li>Wait for self-test to complete (green LEDs)</li>
+                                <li>Connect RED lead to breaker Phase A top terminal</li>
+                                <li>Connect BLACK lead to Phase A bottom terminal</li>
+                                <li>Verify connections are tight (wiggle test)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Configure Test (3 minutes):</strong>
+                            <ul>
+                                <li>Press <code>MENU</code> button on ACTAS</li>
+                                <li>Navigate to: <code>Tests > Contact Timing</code></li>
+                                <li>Select: <code>Manual Operation</code></li>
+                                <li>Set: <code>Single Pole Test</code></li>
+                                <li>Press <code>START</code> - screen shows "Ready - Operate Breaker"</li>
+                            </ul>
+                        </li>
+                        <li><strong>Execute Test (2 minutes):</strong>
+                            <ul>
+                                <li>Manually CLOSE breaker handle (push up/in)</li>
+                                <li>ACTAS beeps - shows closing time</li>
+                                <li>Wait 10 seconds</li>
+                                <li>Manually OPEN breaker handle</li>
+                                <li>ACTAS beeps - shows opening time</li>
+                            </ul>
+                        </li>
+                        <li><strong>Record Results:</strong>
+                            <ul>
+                                <li>Write down: Closing time (TC), Opening time (TO)</li>
+                                <li>Press <code>SAVE</code> - name file "Exercise_1"</li>
+                                <li>Take phone photo of screen for reference</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="step">
+                    <strong>Expected Results & Self-Check:</strong>
+                    <table class="spec-table">
+                        <tr>
+                            <td>Closing Time (TC)</td>
+                            <td>30-80 ms (typical MCCB/ACB)</td>
+                        </tr>
+                        <tr>
+                            <td>Opening Time (TO)</td>
+                            <td>20-60 ms (typical MCCB/ACB)</td>
+                        </tr>
+                        <tr>
+                            <td>Pass Criteria</td>
+                            <td>Both readings stable across 3 tests (±5ms)</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="warning">
+                    <strong>Troubleshooting:</strong>
+                    <ul>
+                        <li>❌ "No contact detected" → Check lead connections, try different terminal</li>
+                        <li>❌ Time >200ms → Breaker mechanism may be damaged</li>
+                        <li>❌ Different result each test → Loose connections or worn contacts</li>
+                    </ul>
+                </div>
+
+                <div class="tip">
+                    <strong>✓ Success Criteria:</strong> You've mastered this when you can complete setup to results in under 10 minutes with consistent readings across 3 consecutive tests.
+                </div>
+
+                <h3>Practice Exercise 2: Three-Phase Contact Timing</h3>
+                <div class="step">
+                    <strong>Objective:</strong> Measure all three phases and calculate pole discrepancy
+                    <p><strong>New Skills:</strong> Multi-channel setup, discrepancy analysis</p>
+                    <p><strong>Time Required:</strong> 20 minutes</p>
+                </div>
+
+                <div class="step">
+                    <strong>Connection Diagram:</strong>
+                    <ul>
+                        <li>RED lead → Phase A (top to bottom)</li>
+                        <li>YELLOW lead → Phase B (top to bottom)</li>
+                        <li>BLUE lead → Phase C (top to bottom)</li>
+                        <li>Label each lead with tape to avoid confusion</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <strong>Procedure:</strong>
+                    <ol>
+                        <li>Connect all three phases to ACTAS terminals (color-matched)</li>
+                        <li><code>Menu > Tests > Contact Timing > 3-Phase Test</code></li>
+                        <li>Manually close breaker - all 3 channels capture timing</li>
+                        <li>Manually open breaker - all 3 channels capture timing</li>
+                        <li>Review results screen</li>
+                    </ol>
+                </div>
+
+                <div class="step">
+                    <strong>Analysis - Understanding Pole Discrepancy:</strong>
+                    <p><strong>Example Results:</strong></p>
+                    <ul>
+                        <li>Phase A: 35.2 ms</li>
+                        <li>Phase B: 36.8 ms</li>
+                        <li>Phase C: 37.1 ms</li>
+                        <li><strong>Discrepancy = 37.1 - 35.2 = 1.9 ms</strong></li>
+                    </ul>
+                    <p><strong>Interpretation:</strong></p>
+                    <ul>
+                        <li>✓ <3ms = PASS (IEC 62271 standard)</li>
+                        <li>⚠ 3-5ms = Monitor, retest in 6 months</li>
+                        <li>❌ >5ms = FAIL, requires maintenance</li>
+                    </ul>
+                </div>
+
+                <div class="tip">
+                    <strong>💡 Practice Challenge:</strong> Repeat test 5 times. Calculate average for each phase. If standard deviation >2ms, investigate connection quality or breaker condition.
+                </div>
+
+                <h3>Practice Exercise 3: Coil-Driven Automatic Testing</h3>
+                <div class="step">
+                    <strong>Objective:</strong> Perform automated test with coil energization
+                    <p><strong>New Skills:</strong> Coil connections, voltage selection, automated sequencing</p>
+                    <p><strong>Time Required:</strong> 30 minutes</p>
+                    <p><strong>SAFETY LEVEL:</strong> Intermediate - breaker will operate automatically</p>
+                </div>
+
+                <div class="step">
+                    <strong>Additional Connections:</strong>
+                    <ol>
+                        <li>Identify trip coil terminals on breaker (usually marked TC or TRIP)</li>
+                        <li>Note voltage rating on breaker nameplate (e.g., 125V DC)</li>
+                        <li>Connect WHITE wire from ACTAS to trip coil positive (+)</li>
+                        <li>Connect BLACK wire from ACTAS to trip coil negative (-)</li>
+                        <li>For closing coil: separate WHITE/BLACK to close coil terminals</li>
+                    </ol>
+                </div>
+
+                <div class="warning">
+                    <strong>⚠️ Before Proceeding:</strong>
+                    <ul>
+                        <li>Verify coil voltage matches ACTAS setting (overvoltage damages coil)</li>
+                        <li>Keep hands away from moving parts</li>
+                        <li>Ensure breaker is not mechanically blocked</li>
+                        <li>Have emergency stop button accessible</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <strong>Configuration:</strong>
+                    <ol>
+                        <li><code>Menu > Tests > Coil Test</code></li>
+                        <li>Set trip coil voltage: <code>125V DC</code> (match nameplate)</li>
+                        <li>Set close coil voltage: <code>125V DC</code></li>
+                        <li>Select sequence: <code>CLOSE-OPEN</code></li>
+                        <li>Set delay between operations: <code>5 seconds</code></li>
+                    </ol>
+                </div>
+
+                <div class="step">
+                    <strong>Execute Test:</strong>
+                    <ol>
+                        <li>Press <code>START</code></li>
+                        <li>Stand to the side of breaker (not in front)</li>
+                        <li>ACTAS energizes close coil → breaker closes</li>
+                        <li>5-second delay</li>
+                        <li>ACTAS energizes trip coil → breaker opens</li>
+                        <li>Screen displays complete timing sequence</li>
+                    </ol>
+                </div>
+
+                <div class="step">
+                    <strong>Advanced Analysis - Coil Current Waveform:</strong>
+                    <p><code>Menu > Analysis > View Waveform</code></p>
+                    <p><strong>What to Look For:</strong></p>
+                    <ul>
+                        <li><strong>Inrush Current:</strong> Initial spike (5-10x holding current)</li>
+                        <li><strong>Duration:</strong> Coil energized time (should be 100-300ms)</li>
+                        <li><strong>Decay:</strong> Current drop-off curve</li>
+                        <li><strong>Abnormalities:</strong> Double peaks = mechanical binding</li>
+                    </ul>
+                </div>
+
+                <div class="tip">
+                    <strong>✓ Mastery Check:</strong> Successfully complete 3 consecutive CO operations without errors. Coil current waveforms should overlay nearly identically. Save as "Baseline_CoilTest" for future comparison.
+                </div>
+
+                <h3>Practice Exercise 4: Contact Resistance Measurement</h3>
+                <div class="step">
+                    <strong>Objective:</strong> Measure micro-ohm resistance across main contacts
+                    <p><strong>New Skills:</strong> Ductor test setup, interpreting μΩ readings</p>
+                    <p><strong>Time Required:</strong> 25 minutes</p>
+                </div>
+
+                <div class="step">
+                    <strong>Critical Setup Notes:</strong>
+                    <ul>
+                        <li>Breaker MUST be CLOSED for this test (current flows through contacts)</li>
+                        <li>Use heavy-duty test leads (minimum 10 AWG)</li>
+                        <li>Clean contact surfaces with electrical contact cleaner if accessible</li>
+                        <li>ACTAS will inject 100A DC current (check lead ratings)</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <strong>Procedure:</strong>
+                    <ol>
+                        <li>Manually CLOSE breaker (verify mechanically latched)</li>
+                        <li>Connect test leads across Phase A (top to bottom)</li>
+                        <li><code>Menu > Tests > Resistance Test</code></li>
+                        <li>Set test current: <code>100A</code></li>
+                        <li>Set duration: <code>5 seconds</code></li>
+                        <li>Press <code>START</code> - ACTAS applies DC current</li>
+                        <li>Screen displays resistance in micro-ohms (μΩ)</li>
+                        <li>Repeat for Phase B and Phase C</li>
+                    </ol>
+                </div>
+
+                <div class="step">
+                    <strong>Result Interpretation:</strong>
+                    <table class="spec-table">
+                        <tr>
+                            <td>30-100 μΩ</td>
+                            <td>✓ GOOD - New or well-maintained contacts</td>
+                        </tr>
+                        <tr>
+                            <td>100-200 μΩ</td>
+                            <td>⚠ ACCEPTABLE - Monitor, trending upward</td>
+                        </tr>
+                        <tr>
+                            <td>200-300 μΩ</td>
+                            <td>⚠ MARGINAL - Schedule maintenance soon</td>
+                        </tr>
+                        <tr>
+                            <td>>300 μΩ</td>
+                            <td>❌ FAIL - Immediate maintenance required</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="step">
+                    <strong>Comparative Analysis:</strong>
+                    <p>Record all three phases:</p>
+                    <ul>
+                        <li>Phase A: 85 μΩ</li>
+                        <li>Phase B: 92 μΩ</li>
+                        <li>Phase C: 88 μΩ</li>
+                    </ul>
+                    <p><strong>Max deviation = 92 - 85 = 7 μΩ</strong></p>
+                    <p>If one phase is >50% higher than others, investigate that specific pole (contact erosion, misalignment, or contamination).</p>
+                </div>
+
+                <div class="tip">
+                    <strong>💡 Practice Scenario:</strong> Test same breaker monthly for 6 months. Plot resistance vs time. If upward trend >20μΩ per month, predict when maintenance will be needed (when it reaches 200μΩ threshold).
+                </div>
+
+                <h3>Practice Exercise 5: Travel Measurement with Linear Sensor</h3>
+                <div class="step">
+                    <strong>Objective:</strong> Install travel sensor and capture motion profile
+                    <p><strong>New Skills:</strong> Mechanical sensor mounting, velocity calculation, waveform analysis</p>
+                    <p><strong>Time Required:</strong> 45 minutes</p>
+                    <p><strong>Difficulty:</strong> Advanced</p>
+                </div>
+
+                <div class="step">
+                    <strong>Sensor Installation:</strong>
+                    <ol>
+                        <li>Identify moving contact arm on breaker mechanism</li>
+                        <li>Find fixed mounting point for sensor body (frame/base)</li>
+                        <li>Attach sensor cable to moving arm with cable tie</li>
+                        <li>Ensure cable moves linearly (no twisting or binding)</li>
+                        <li>Zero the sensor with breaker in OPEN position:
+                            <ul>
+                                <li><code>Menu > Settings > Sensor Calibration</code></li>
+                                <li>Select <code>Zero Position</code></li>
+                                <li>Manually close breaker slowly</li>
+                                <li>Measure physical travel with ruler (e.g., 25mm)</li>
+                                <li>Enter in ACTAS: <code>Full Travel = 25mm</code></li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="step">
+                    <strong>Execute Travel Test:</strong>
+                    <ol>
+                        <li><code>Menu > Tests > Travel & Velocity</code></li>
+                        <li>Set operation: <code>CLOSE</code></li>
+                        <li>Press <code>START</code></li>
+                        <li>ACTAS plots displacement vs time graph</li>
+                        <li>Automatically calculates:
+                            <ul>
+                                <li>Average velocity (m/s)</li>
+                                <li>Peak velocity (m/s)</li>
+                                <li>Over-travel distance (mm)</li>
+                                <li>Rebound distance (mm)</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="step">
+                    <strong>Understanding the Travel Curve:</strong>
+                    <p><strong>Shape Analysis:</strong></p>
+                    <ul>
+                        <li><strong>Initial slope:</strong> Mechanism pickup (should be steep)</li>
+                        <li><strong>Linear region:</strong> Constant velocity motion</li>
+                        <li><strong>Peak plateau:</strong> Contact touch point</li>
+                        <li><strong>Small dip:</strong> Over-travel (normal 1-3mm)</li>
+                        <li><strong>Oscillation:</strong> Rebound (should dampen quickly)</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <strong>Expected Velocity Ranges:</strong>
+                    <table class="spec-table">
+                        <tr>
+                            <td>ACB (Air Circuit Breaker)</td>
+                            <td>0.5-2.0 m/s</td>
+                        </tr>
+                        <tr>
+                            <td>VCB (Vacuum CB)</td>
+                            <td>3.0-7.0 m/s</td>
+                        </tr>
+                        <tr>
+                            <td>SF6 Circuit Breaker</td>
+                            <td>2.0-5.0 m/s</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="warning">
+                    <strong>Red Flags in Travel Data:</strong>
+                    <ul>
+                        <li>❌ Velocity <50% of spec → Weak spring/low hydraulic pressure</li>
+                        <li>❌ Excessive rebound (>5mm) → Worn damper/buffer</li>
+                        <li>❌ Irregular curve (stuttering) → Mechanical binding/friction</li>
+                        <li>❌ No over-travel → Contact wear, insufficient travel</li>
+                    </ul>
+                </div>
+
+                <div class="tip">
+                    <strong>✓ Mastery Achievement:</strong> Successfully capture travel curve with smooth profile. Compare to manufacturer datasheet. Velocity should be within ±20% of nominal spec. Save as "Travel_Baseline" for degradation tracking.
+                </div>
+
+                <h3>Practice Exercise 6: Multi-Shot Endurance Testing</h3>
+                <div class="step">
+                    <strong>Objective:</strong> Program automatic C-O-C-O sequence to test mechanical endurance
+                    <p><strong>New Skills:</strong> Custom test scripting, trend analysis, statistical evaluation</p>
+                    <p><strong>Time Required:</strong> 60 minutes</p>
+                </div>
+
+                <div class="step">
+                    <strong>Programming the Sequence:</strong>
+                    <ol>
+                        <li><code>Menu > Tests > Sequential Operations</code></li>
+                        <li>Define pattern:
+                            <ul>
+                                <li>Operation 1: CLOSE</li>
+                                <li>Delay: 15 seconds</li>
+                                <li>Operation 2: OPEN</li>
+                                <li>Delay: 15 seconds</li>
+                                <li>Repeat: 5 cycles</li>
+                            </ul>
+                        </li>
+                        <li>Set safety limits:
+                            <ul>
+                                <li>Max timing deviation: ±10ms</li>
+                                <li>Max contact resistance: 200μΩ</li>
+                                <li>Auto-stop if limit exceeded</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="step">
+                    <strong>Execute and Monitor:</strong>
+                    <ol>
+                        <li>Press <code>START</code> - sequence begins automatically</li>
+                        <li>Watch real-time display:
+                            <ul>
+                                <li>Cycle counter (1/5, 2/5, etc.)</li>
+                                <li>Current timing vs average</li>
+                                <li>Temperature monitoring (if sensor connected)</li>
+                            </ul>
+                        </li>
+                        <li>ACTAS compiles statistics after completion</li>
+                    </ol>
+                </div>
+
+                <div class="step">
+                    <strong>Statistical Analysis:</strong>
+                    <p><code>Menu > Analysis > Statistics View</code></p>
+                    <p><strong>Data Points Collected:</strong></p>
+                    <ul>
+                        <li>Mean closing time: 65.3 ms</li>
+                        <li>Standard deviation: 1.8 ms</li>
+                        <li>Min/Max values: 63.2 / 68.1 ms</li>
+                        <li>Trend: +0.2ms per cycle (warming effect)</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <strong>Pass/Fail Criteria:</strong>
+                    <ul>
+                        <li>✓ Standard deviation <5ms = Healthy mechanism</li>
+                        <li>✓ Linear warming trend <1ms/cycle = Normal</li>
+                        <li>⚠ Standard deviation >5ms = Inconsistent operation</li>
+                        <li>❌ Increasing trend >2ms/cycle = Degradation in progress</li>
+                        <li>❌ Any cycle fails safety limits = Stop immediately</li>
+                    </ul>
+                </div>
+
+                <div class="tip">
+                    <strong>💡 Advanced Challenge:</strong> Compare fresh breaker vs aged breaker (500+ operations). Plot standard deviation vs operational age. This develops your ability to predict maintenance needs.
+                </div>
+
+                <h3>Practice Exercise 7: ETAP Data Export & Import</h3>
+                <div class="step">
+                    <strong>Objective:</strong> Export ACTAS results and import into ETAP software
+                    <p><strong>New Skills:</strong> File formatting, software integration, data mapping</p>
+                    <p><strong>Time Required:</strong> 30 minutes</p>
+                    <p><strong>Prerequisites:</strong> ETAP software installed, basic project created</p>
+                </div>
+
+                <div class="step">
+                    <strong>Export from ACTAS:</strong>
+                    <ol>
+                        <li>Complete Exercise 3 (coil-driven test) first</li>
+                        <li><code>Menu > Export > Format Selection</code></li>
+                        <li>Choose <code>CSV - ETAP Compatible</code></li>
+                        <li>Select data to export:
+                            <ul>
+                                <li>☑ Contact timing (all phases)</li>
+                                <li>☑ Contact resistance</li>
+                                <li>☑ Travel distance</li>
+                                <li>☑ Coil current waveform</li>
+                            </ul>
+                        </li>
+                        <li>Save to USB: <code>CB-101_FullTest_2026-01-13.csv</code></li>
+                    </ol>
+                </div>
+
+                <div class="step">
+                    <strong>Import into ETAP:</strong>
+                    <ol>
+                        <li>Open your ETAP project</li>
+                        <li>Locate circuit breaker symbol on one-line diagram</li>
+                        <li>Right-click breaker → <code>Edit Device</code></li>
+                        <li><code>Rating Tab > Import Test Data</code></li>
+                        <li>Browse to ACTAS CSV file</li>
+                        <li>ETAP auto-maps fields:
+                            <ul>
+                                <li>Opening time → Interrupting time field</li>
+                                <li>Closing time → Making time field</li>
+                                <li>Resistance → Contact resistance field</li>
+                            </ul>
+                        </li>
+                        <li>Review mapping, click <code>Apply</code></li>
+                    </ol>
+                </div>
+
+                <div class="step">
+                    <strong>Verify Integration:</strong>
+                    <ol>
+                        <li>Run ETAP Short Circuit study</li>
+                        <li>Check that CB clearing time now uses YOUR measured value (e.g., 35ms) instead of default (50ms)</li>
+                        <li>Run Arc Flash study</li>
+                        <li>Note incident energy recalculated with actual CB performance</li>
+                        <li>Generate report showing "Field Tested Data" tag</li>
+                    </ol>
+                </div>
+
+                <div class="tip">
+                    <strong>✓ Success Metric:</strong> ETAP study results change when using imported ACTAS data vs default values. Document the difference (e.g., "Arc flash energy reduced from 8.2 to 6.5 cal/cm² due to faster measured clearing time").
+                </div>
+
+                <h3>Practice Exercise 8: Diagnostic Troubleshooting Scenarios</h3>
+                <div class="step">
+                    <strong>Objective:</strong> Interpret test results to diagnose common CB problems
+                    <p><strong>New Skills:</strong> Root cause analysis, decision-making, reporting</p>
+                    <p><strong>Time Required:</strong> Per scenario review</p>
+                </div>
+
+                <div class="step">
+                    <strong>Scenario A: Slow Opening Time</strong>
+                    <p><strong>Test Results:</strong></p>
+                    <ul>
+                        <li>Phase A: 125 ms (spec: 50ms)</li>
+                        <li>Phase B: 128 ms</li>
+                        <li>Phase C: 130 ms</li>
+                        <li>Contact resistance: Normal (75μΩ)</li>
+                    </ul>
+                    <p><strong>Diagnosis Process:</strong></p>
+                    <ol>
+                        <li>Is it 2.5x slower than spec? → Yes, significant</li>
+                        <li>Are all phases equally slow? → Yes, mechanism issue</li>
+                        <li>Is resistance normal? → Yes, contacts are OK</li>
+                        <li><strong>Root Cause:</strong> Weak operating mechanism (spring discharged, low hydraulic pressure, or worn trip latch)</li>
+                        <li><strong>Action:</strong> Recharge spring/accumulator, lubricate mechanism, or replace if worn</li>
+                    </ol>
+                </div>
+
+                <div class="step">
+                    <strong>Scenario B: High Contact Resistance on One Phase</strong>
+                    <p><strong>Test Results:</strong></p>
+                    <ul>
+                        <li>Phase A: 85 μΩ</li>
+                        <li>Phase B: 320 μΩ (>3x normal!)</li>
+                        <li>Phase C: 92 μΩ</li>
+                        <li>Timing: Normal on all phases</li>
+                    </ul>
+                    <p><strong>Diagnosis Process:</strong></p>
+                    <ol>
+                        <li>Is one phase significantly different? → Yes, Phase B</li>
+                        <li>Is timing affected? → No, mechanical OK</li>
+                        <li><strong>Root Cause:</strong> Contact erosion, pitting, or contamination on Phase B only</li>
+                        <li><strong>Action:</strong> Inspect Phase B contacts visually, clean if oxidized, replace if pitted/burned</li>
+                    </ol>
+                </div>
+
+                <div class="step">
+                    <strong>Scenario C: Excessive Pole Discrepancy</strong>
+                    <p><strong>Test Results:</strong></p>
+                    <ul>
+                        <li>Phase A closes at: 45 ms</li>
+                        <li>Phase B closes at: 48 ms</li>
+                        <li>Phase C closes at: 55 ms (discrepancy = 10ms!)</li>
+                    </ul>
+                    <p><strong>Diagnosis Process:</strong></p>
+                    <ol>
+                        <li>Exceeds 3ms IEC limit? → Yes, by 7ms</li>
+                        <li>Which phase is outlier? → Phase C (latest)</li>
+                        <li><strong>Root Cause:</strong> Mechanical linkage misalignment on Phase C pole</li>
+                        <li><strong>Hazard:</strong> Phase C contacts may not fully close during fault, causing single-phasing</li>
+                        <li><strong>Action:</strong> Adjust mechanical linkage, verify contact wipe, retest</li>
+                    </ol>
+                </div>
+
+                <div class="step">
+                    <strong>Scenario D: Inconsistent Test Results</strong>
+                    <p><strong>Test Results (5 consecutive tests):</strong></p>
+                    <ul>
+                        <li>Test 1: 50 ms</li>
+                        <li>Test 2: 55 ms</li>
+                        <li>Test 3: 48 ms</li>
+                        <li>Test 4: 62 ms</li>
+                        <li>Test 5: 51 ms</li>
+                        <li>Standard deviation: 5.3 ms (too high!)</li>
+                    </ul>
+                    <p><strong>Diagnosis Process:</strong></p>
+                    <ol>
+                        <li>Are results repeatable? → No, high variation</li>
+                        <li>Check test lead connections → Found loose clip on Phase B</li>
+                        <li>Re-tighten and retest → Standard deviation drops to 1.2ms</li>
+                        <li><strong>Lesson:</strong> Always verify test equipment before blaming breaker</li>
+                    </ol>
+                </div>
+
+                <div class="warning">
+                    <strong>⚠️ Decision Matrix - When to Take Breaker Out of Service:</strong>
+                    <ul>
+                        <li>❌ Timing >2x manufacturer spec</li>
+                        <li>❌ Contact resistance >300μΩ on any phase</li>
+                        <li>❌ Pole discrepancy >5ms</li>
+                        <li>❌ Visible arcing/sparking during test</li>
+                        <li>❌ Mechanical binding or unusual noise</li>
+                        <li>❌ Test results degrade >20% from previous baseline</li>
+                    </ul>
+                    <p><strong>Document all findings and consult with facility engineer before returning questionable equipment to service.</strong></p>
+                </div>
+
+                <h3>Practice Exercise 9: Complete Acceptance Test Report</h3>
+                <div class="step">
+                    <strong>Objective:</strong> Generate professional test report meeting NETA standards
+                    <p><strong>New Skills:</strong> Documentation, pass/fail determination, report formatting</p>
+                    <p><strong>Time Required:</strong> 30 minutes</p>
+                </div>
+
+                <div class="step">
+                    <strong>Report Components Checklist:</strong>
+                    <ol>
+                        <li><strong>Header Information:</strong>
+                            <ul>
+                                <li>Facility name and location</li>
+                                <li>Breaker ID and location (e.g., "MDP-CB-3")</li>
+                                <li>Test date and technician name<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOCOS ACTAS C24 Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #fff;
+            padding: 1%;
+            line-height: 1.5;
+        }
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 1.2rem;
+            margin: 1% 0;
+            padding: 2% 1%;
+            background: rgba(255,255,255,0.1);
+            border-left: 3px solid #4CAF50;
+        }
+        h2 {
+            font-size: 1rem;
+            margin: 2% 0 1% 0;
+            color: #4CAF50;
+            border-bottom: 1px solid rgba(76,175,80,0.3);
+            padding-bottom: 1%;
+        }
+        h3 {
+            font-size: 0.9rem;
+            margin: 1.5% 0 1% 0;
+            color: #81C784;
+        }
+        .section {
+            background: rgba(0,0,0,0.3);
+            margin: 1% 0;
+            padding: 2% 1%;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+        .step {
+            background: rgba(255,255,255,0.05);
+            padding: 1.5% 1%;
+            margin: 1% 0;
+            border-left: 2px solid #2196F3;
+            border-radius: 4px;
+        }
+        .step-number {
+            display: inline-block;
+            background: #2196F3;
+            color: white;
+            padding: 1% 2%;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 0.8rem;
+            margin-right: 2%;
+        }
+        .warning {
+            background: rgba(255,152,0,0.2);
+            border-left: 3px solid #FF9800;
+            padding: 1.5% 1%;
+            margin: 1% 0;
+            border-radius: 4px;
+        }
+        .tip {
+            background: rgba(76,175,80,0.2);
+            border-left: 3px solid #4CAF50;
+            padding: 1.5% 1%;
+            margin: 1% 0;
+            border-radius: 4px;
+        }
+        ul, ol {
+            margin: 1% 0 1% 4%;
+        }
+        li {
+            margin: 1% 0;
+            font-size: 0.9rem;
+        }
+        .spec-table {
+            width: 100%;
+            margin: 1% 0;
+            border-collapse: collapse;
+        }
+        .spec-table td {
+            padding: 1.5% 1%;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+        }
+        .spec-table td:first-child {
+            font-weight: bold;
+            color: #81C784;
+            width: 40%;
+        }
+        .btn {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 2% 4%;
+            margin: 1% 1% 1% 0;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            border: none;
+            cursor: pointer;
+        }
+        .collapsible {
+            background: rgba(33,150,243,0.3);
+            color: white;
+            cursor: pointer;
+            padding: 2% 1%;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 0.9rem;
+            border-radius: 4px;
+            margin: 1% 0;
+        }
+        .collapsible:after {
+            content: '▼';
+            float: right;
+            font-size: 0.7rem;
+        }
+        .collapsible.active:after {
+            content: '▲';
+        }
+        .content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background: rgba(0,0,0,0.2);
+            border-radius: 0 0 4px 4px;
+        }
+        .content-inner {
+            padding: 2% 1%;
+        }
+        code {
+            background: rgba(0,0,0,0.4);
+            padding: 0.5% 1%;
+            border-radius: 3px;
+            font-size: 0.85rem;
+            color: #FFD54F;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>KOCOS ACTAS C24 Circuit Breaker Analyzer - Professional Guide</h1>
+        
+        <div class="section">
+            <h2>Overview</h2>
+            <p>The KOCOS ACTAS C24 is a precision instrument for testing and analyzing circuit breakers up to 63 kA. Integrated ETAP workflows enable comprehensive relay coordination and power system protection studies.</p>
+            
+            <table class="spec-table">
+                <tr>
+                    <td>Breaking Capacity</td>
+                    <td>Up to 63 kA</td>
+                </tr>
+                <tr>
+                    <td>Voltage Range</td>
+                    <td>12V - 550V AC/DC</td>
+                </tr>
+                <tr>
+                    <td>Timing Resolution</td>
+                    <td>0.1 ms</td>
+                </tr>
+                <tr>
+                    <td>Travel Measurement</td>
+                    <td>±500 mm, 0.1 mm resolution</td>
+                </tr>
+                <tr>
+                    <td>ETAP Integration</td>
+                    <td>Direct export via CSV/XML</td>
+                </tr>
+            </table>
+        </div>
+
+        <button class="collapsible">⚠️ SAFETY GUIDE - READ FIRST</button>
+        <div class="content">
+            <div class="content-inner">
+                <div class="warning">
+                    <strong>🚨 DANGER - ELECTRICAL HAZARD:</strong> Circuit breaker testing involves work on de-energized equipment that was previously energized at lethal voltages. Failure to follow safety procedures can result in death, severe injury, or equipment damage. This guide does NOT replace formal electrical safety training.
+                </div>
+
+                <h3>Pre-Test Safety Requirements</h3>
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <strong>Minimum Qualifications</strong>
+                    <ul>
+                        <li>✓ NFPA 70E Qualified Person certification (or equivalent)</li>
+                        <li>✓ Arc flash awareness training completed</li>
+                        <li>✓ CPR/First Aid certified</li>
+                        <li>✓ Lockout/Tagout authorized employee</li>
+                        <li>✓ Facility-specific safety orientation</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <strong>Required Personal Protective Equipment (PPE)</strong>
+                    <p><strong>Minimum for De-Energized Testing:</strong></p>
+                    <ul>
+                        <li>Arc-rated clothing (min 4 cal/cm² - check arc flash label)</li>
+                        <li>Safety glasses with side shields (ANSI Z87.1)</li>
+                        <li>Leather work gloves (over rubber insulating gloves if required)</li>
+                        <li>Leather work boots with electrical hazard rating</li>
+                        <li>Hard hat (Class E - 20kV protection)</li>
+                        <li>Hearing protection (CB operation can exceed 85dB)</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <strong>Voltage-Rated Test Equipment Required</strong>
+                    <ul>
+                        <li>CAT III or CAT IV rated multimeter</li>
+                        <li>Non-contact voltage detector (with battery test button)</li>
+                        <li>Phasing sticks (for 3-phase verification)</li>
+                        <li>Insulated hand tools (1000V rated)</li>
+                        <li>Grounding cables with visible grounding points</li>
+                    </ul>
+                </div>
+
+                <h3>The 5-Step Safe Work Process</h3>
+                
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <strong>IDENTIFY - Hazard Recognition</strong>
+                    <p>Before approaching equipment:</p>
+                    <ul>
+                        <li>Read arc flash label (PPE category, incident energy, boundary)</li>
+                        <li>Check one-line diagram for all power sources</li>
+                        <li>Identify backfeed possibilities (generators, co-generation, solar)</li>
+                        <li>Note capacitor banks (can hold charge for hours)</li>
+                        <li>Check for control power sources (DC systems, UPS)</li>
+                        <li>Verify confined space requirements if in vault/room</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <strong>ISOLATE - De-Energization Procedure</strong>
+                    <p><strong>Follow this exact sequence:</strong></p>
+                    <ol>
+                        <li><strong>Notify Operations:</strong> Get approval, communicate with control room</li>
+                        <li><strong>Open Circuit Breaker:</strong> Trip via control switch (do NOT use test set yet)</li>
+                        <li><strong>Rack Out (if applicable):</strong> Move breaker to test position</li>
+                        <li><strong>Open Disconnect Switches:</strong> Upstream AND downstream if present</li>
+                        <li><strong>Apply Lockout Devices:</strong> Physical locks on operating handles</li>
+                        <li><strong>Tag Out:</strong> Personal danger tags with your name/date</li>
+                        <li><strong>Wait 5 Minutes:</strong> Allow capacitive discharge (minimum)</li>
+                    </ol>
+                </div>
+
+                <div class="warning">
+                    <strong>⚠️ CRITICAL RULE:</strong> Each worker must apply their OWN lock. NEVER work under someone else's lock. If shift changes mid-test, transfer LOTO properly.
+                </div>
+
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <strong>TEST - Voltage Verification (Most Critical Step)</strong>
+                    <p><strong>3-Point Verification Method:</strong></p>
+                    <ol>
+                        <li><strong>Test the Tester:</strong>
+                            <ul>
+                                <li>Use non-contact voltage detector on KNOWN live circuit first</li>
+                                <li>Verify it beeps/lights up</li>
+                                <li>Check battery indicator is good</li>
+                            </ul>
+                        </li>
+                        <li><strong>Test the Circuit:</strong>
+                            <ul>
+                                <li>Test EACH phase to ground: A-G, B-G, C-G</li>
+                                <li>Test phase-to-phase: A-B, B-C, C-A</li>
+                                <li>Test both sides (load and line) of breaker</li>
+                                <li>Use multimeter as secondary verification</li>
+                                <li>Expected reading: 0V on ALL points</li>
+                            </ul>
+                        </li>
+                        <li><strong>Re-Test the Tester:</strong>
+                            <ul>
+                                <li>Return to KNOWN live circuit</li>
+                                <li>Confirm detector still functioning</li>
+                                <li>This proves it didn't fail during your tests</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="warning">
+                    <strong>🚨 STOP WORK IF:</strong> Any phase shows voltage, tester fails second live test, you're unsure about any reading, multiple voltage sources detected. Call supervisor - never proceed with doubts.
+                </div>
+
+                <div class="step">
+                    <span class="step-number">4</span>
+                    <strong>GROUND - Temporary Protective Grounds</strong>
+                    <p><strong>Grounding Procedure:</strong></p>
+                    <ol>
+                        <li>Select grounding cables rated for fault current (min 2/0 AWG)</li>
+                        <li><strong>Connect ground end FIRST:</strong> Clamp to verified ground bus/grid</li>
+                        <li>Connect phase ends using hot stick: A, B, C phases</li>
+                        <li>Apply grounds on BOTH sides of breaker (line and load)</li>
+                        <li>Grounds must remain visible throughout work</li>
+                        <li><strong>Remove in reverse order:</strong> Phase ends first, ground last</li>
+                    </ol>
+                </div>
+
+                <div class="tip">
+                    <strong>💡 Why Ground De-Energized Equipment?</strong> Protects against: induced voltage from nearby energized conductors, accidental backfeed, capacitive coupling, static buildup, and provides fault path if re-energized accidentally.
+                </div>
+
+                <div class="step">
+                    <span class="step-number">5</span>
+                    <strong>PROTECT - Boundary Establishment</strong>
+                    <ul>
+                        <li>Place barrier tape/cones around work area</li>
+                        <li>Post "MEN WORKING" signs at all entry points</li>
+                        <li>Establish 3-foot minimum approach boundary (even de-energized)</li>
+                        <li>Assign safety watch if working alone is prohibited</li>
+                        <li>Keep fire extinguisher (Class C) within 25 feet</li>
+                    </ul>
+                </div>
+
+                <h3>ACTAS-Specific Safety Procedures</h3>
+
+                <div class="step">
+                    <strong>Test Lead Connection Safety</strong>
+                    <ol>
+                        <li>Verify ACTAS unit is OFF before connecting leads</li>
+                        <li>Inspect leads for damage (frayed insulation, broken clips)</li>
+                        <li>Connect clips to breaker terminals firmly (wiggle test)</li>
+                        <li>Route cables away from pinch points and moving parts</li>
+                        <li>Never cross ACTAS leads (can damage unit)</li>
+                        <li>Keep ACTAS unit on dry, stable surface (not on floor)</li>
+                    </ol>
+                </div>
+
+                <div class="step">
+                    <strong>During Coil-Energized Testing</strong>
+                    <div class="warning">
+                        <strong>⚠️ WARNING:</strong> CB operating mechanisms store significant energy (springs, hydraulics, pneumatics). Sudden unexpected operation can cause injury.
+                    </div>
+                    <ul>
+                        <li>Keep hands/tools clear of moving contacts during test</li>
+                        <li>Stand to the side of breaker, not in front</li>
+                        <li>Wear safety glasses (contacts can spark/arc during operation)</li>
+                        <li>Verify trip/close coil voltage matches CB rating (overvoltage damages coil)</li>
+                        <li>Allow 30 seconds between operations (thermal cool-down)</li>
+                        <li>Maximum 5 operations per session (unless CB rated for more)</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <strong>Travel Sensor Installation Safety</strong>
+                    <ul>
+                        <li>Ensure CB is mechanically blocked/pinned if available</li>
+                        <li>Attach sensor securely (loose sensor = projectile hazard)</li>
+                        <li>Keep cable slack - taut cable can whip during operation</li>
+                        <li>Never attach to HV insulator or conductor (only to mechanism)</li>
+                    </ul>
+                </div>
+
+                <h3>Emergency Response Procedures</h3>
+
+                <div class="step">
+                    <strong>If Someone is Shocked/Energized</strong>
+                    <ol>
+                        <li><strong>DO NOT TOUCH</strong> the person if still in contact with energized parts</li>
+                        <li>Disconnect power source or push victim away with insulated tool</li>
+                        <li>Call emergency services: 911 (or site emergency number)</li>
+                        <li>Begin CPR if qualified and safe to approach</li>
+                        <li>Use AED if available (Automated External Defibrillator)</li>
+                        <li>Keep victim warm, treat for shock</li>
+                        <li>Do NOT move victim if spinal injury suspected</li>
+                    </ol>
+                </div>
+
+                <div class="step">
+                    <strong>If Equipment Arcs/Flashes During Test</strong>
+                    <ol>
+                        <li>Immediately move away from equipment (don't turn back)</li>
+                        <li>Alert others in area - evacuate if needed</li>
+                        <li>Notify facility electrician and supervisor</li>
+                        <li>Do NOT attempt to re-energize or investigate</li>
+                        <li>Document incident with photos (from safe distance)</li>
+                        <li>Check yourself for injuries (burns, hearing damage)</li>
+                    </ol>
+                </div>
+
+                <div class="warning">
+                    <strong>🚨 Arc Flash Facts:</strong>
+                    <ul>
+                        <li>Temperature: 35,000°F (4x hotter than sun's surface)</li>
+                        <li>Pressure wave: Can rupture eardrums, collapse lungs</li>
+                        <li>Molten metal: Ejected at hundreds of feet per second</li>
+                        <li>Survival time: <1 second without proper PPE</li>
+                    </ul>
+                </div>
+
+                <h3>Site-Specific Safety Checks</h3>
+
+                <div class="step">
+                    <strong>Before Starting ANY Test - Complete This Checklist</strong>
+                    <ul>
+                        <li>☐ Obtained work permit/authorization from facility</li>
+                        <li>☐ Reviewed arc flash label and wearing correct PPE</li>
+                        <li>☐ Communicated with operations/control room</li>
+                        <li>☐ Applied personal LOTO locks and tags</li>
+                        <li>☐ Performed 3-point voltage verification</li>
+                        <li>☐ Applied temporary protective grounds</li>
+                        <li>☐ Established safety boundary with barriers</li>
+                        <li>☐ Verified ACTAS equipment is functioning (self-test passed)</li>
+                        <li>☐ Confirmed emergency exits and fire extinguisher locations</li>
+                        <li>☐ Ensured communication device is working (radio/phone)</li>
+                        <li>☐ Identified nearest first aid kit and AED</li>
+                        <li>☐ Buddy system in place if required</li>
+                    </ul>
+                </div>
+
+                <div class="tip">
+                    <strong>💡 Pro Safety Tip:</strong> Take photos at each safety step (LOTO applied, grounds connected, voltage readings). Provides documentation and helps verify nothing was missed.
+                </div>
+
+                <h3>Post-Test Restoration Safety</h3>
+
+                <div class="step">
+                    <strong>Safe Re-Energization Sequence</strong>
+                    <ol>
+                        <li>Remove all ACTAS test leads and equipment</li>
+                        <li>Remove temporary protective grounds (phase ends first)</li>
+                        <li>Inspect breaker for tools/materials left behind</li>
+                        <li>Close all compartment covers and barriers</li>
+                        <li>Verify area is clear of personnel</li>
+                        <li>Remove barriers and signage</li>
+                        <li>Notify operations - ready for re-energization</li>
+                        <li>Remove LOTO tags and locks (yours only)</li>
+                        <li>Stand clear during initial energization (operations does this)</li>
+                        <li>Wait for confirmation from operations before leaving</li>
+                    </ol>
+                </div>
+
+                <div class="warning">
+                    <strong>⚠️ NEVER:</strong>
+                    <ul>
+                        <li>Remove someone else's lock/tag</li>
+                        <li>Close breaker yourself unless authorized</li>
+                        <li>Leave site until equipment is returned to service</li>
+                        <li>Skip post-test inspection</li>
+                    </ul>
+                </div>
+
+                <h3>Environmental & Situational Hazards</h3>
+
+                <div class="step">
+                    <strong>Additional Hazards During CB Testing</strong>
+                    <ul>
+                        <li><strong>Confined Spaces:</strong> Switchgear vaults require entry permit, forced air ventilation, gas monitoring</li>
+                        <li><strong>SF6 Gas:</strong> Heavier than air, displaces oxygen. Use gas detector, work in ventilated area</li>
+                        <li><strong>Asbestos:</strong> Old switchgear may contain asbestos arc chutes (requires abatement specialist)</li>
+                        <li><strong>Lead Paint:</strong> Pre-1978 equipment - avoid sanding/scraping</li>
+                        <li><strong>PCBs:</strong> Old oil-filled breakers - treat as hazmat, use nitrile gloves</li>
+                        <li><strong>Heights:</strong> If breaker is elevated, use fall protection (>4 feet OSHA)</li>
+                        <li><strong>Weather:</strong> Outdoor switchgear - avoid rain (water + electricity = fatal)</li>
+                    </ul>
+                </div>
+
+                <h3>Regulatory Standards & References</h3>
+
+                <table class="spec-table">
+                    <tr>
+                        <td>NFPA 70E</td>
+                        <td>Electrical Safety in the Workplace</td>
+                    </tr>
+                    <tr>
+                        <td>OSHA 1910.147</td>
+                        <td>Control of Hazardous Energy (LOTO)</td>
+                    </tr>
+                    <tr>
+                        <td>OSHA 1910.333</td>
+                        <td>Selection and Use of Work Practices</td>
+                    </tr>
+                    <tr>
+                        <td>IEEE 1584</td>
+                        <td>Arc Flash Hazard Calculation</td>
+                    </tr>
+                    <tr>
+                        <td>NFPA 70B</td>
+                        <td>Recommended Practice for Electrical Maintenance</td>
+                    </tr>
+                    <tr>
+                        <td>ANSI Z87.1</td>
+                        <td>Eye and Face Protection</td>
+                    </tr>
+                </table>
+
+                <h3>Safety Culture Reminders</h3>
+
+                <div class="tip">
+                    <strong>The Right to Refuse Unsafe Work:</strong>
+                    <p>You have the legal right and professional obligation to stop work if:</p>
+                    <ul>
+                        <li>Safety procedures are unclear or incomplete</li>
+                        <li>Required PPE or tools are unavailable or damaged</li>
+                        <li>You feel rushed or pressured to skip steps</li>
+                        <li>Equipment condition appears unsafe</li>
+                        <li>Weather conditions create additional hazards</li>
+                    </ul>
+                    <p><strong>Never risk your life for a schedule.</strong> Report concerns to supervisor immediately.</p>
+                </div>
+
+                <div class="warning">
+                    <strong>🚨 REMEMBER:</strong> Electricity is invisible, silent, and instantly fatal. Every safety step exists because someone was injured or killed. Honor their memory by working safely every single time. Your family wants you home tonight.
+                </div>
+            </div>
+        </div>
+
+        <button class="collapsible">Beginner's Quick Start Guide</button>
+        <div class="content">
+            <div class="content-inner">
+                <h3>Prerequisites & Skills Required</h3>
+                <div class="step">
+                    <strong>Essential Knowledge</strong>
+                    <ul>
+                        <li>Basic electrical theory (voltage, current, resistance)</li>
+                        <li>Circuit breaker operation principles</li>
+                        <li>Safety protocols for de-energized equipment</li>
+                        <li>Ability to read single-line diagrams</li>
+                    </ul>
+                </div>
+
+                <h3>Your First Test - Simple Contact Timing</h3>
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <strong>Prepare the Breaker</strong>
+                    <ul>
+                        <li>Verify breaker is OFF and isolated</li>
+                        <li>Use voltage detector on all terminals</li>
+                        <li>Ground all phases with grounding cables</li>
+                        <li>Note breaker nameplate data (voltage, current rating)</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <strong>Connect Only 2 Wires (Simplest Test)</strong>
+                    <p>For absolute beginners:</p>
+                    <ul>
+                        <li>Red clip → Phase A breaker terminal (top)</li>
+                        <li>Black clip → Phase A breaker terminal (bottom)</li>
+                        <li>That's it! No coil connections needed for this test</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <strong>Run Basic Timing Test</strong>
+                    <ol>
+                        <li>Turn on ACTAS unit</li>
+                        <li>Press <code>TESTS</code> button</li>
+                        <li>Select <code>Contact Timing</code></li>
+                        <li>Manually operate breaker CLOSE lever</li>
+                        <li>Watch screen - you'll see timing result!</li>
+                        <li>Manually OPEN breaker</li>
+                        <li>Record the times shown</li>
+                    </ol>
+                </div>
+
+                <div class="tip">
+                    <strong>💡 First Timer Tip:</strong> Expected result: 30-80ms. If you see this, you did it correctly! Save screenshot before disconnecting.
+                </div>
+
+                <h3>Common Beginner Mistakes</h3>
+                <div class="warning">
+                    <strong>Avoid These Errors:</strong>
+                    <ul>
+                        <li>❌ Testing energized equipment - ALWAYS de-energize first</li>
+                        <li>❌ Wrong polarity on coil - check +/- markings</li>
+                        <li>❌ Loose test clips - causes intermittent readings</li>
+                        <li>❌ Forgetting to charge breaker spring mechanism</li>
+                        <li>❌ Not recording baseline data for comparison</li>
+                    </ul>
+                </div>
+
+                <h3>Learning Path: Skill Progression</h3>
+                <div class="step">
+                    <strong>Level 1 - Basic (Week 1-2)</strong>
+                    <ul>
+                        <li>Contact timing with manual operation</li>
+                        <li>Understanding test reports</li>
+                        <li>Safe connection procedures</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <strong>Level 2 - Intermediate (Week 3-4)</strong>
+                    <ul>
+                        <li>Contact resistance measurements</li>
+                        <li>Coil-driven automatic testing</li>
+                        <li>Travel sensor installation</li>
+                        <li>Interpreting waveforms</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <strong>Level 3 - Advanced (Month 2-3)</strong>
+                    <ul>
+                        <li>Multi-shot endurance testing</li>
+                        <li>Custom test scripts</li>
+                        <li>ETAP data integration</li>
+                        <li>Predictive maintenance analysis</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <button class="collapsible">ETAP Power System Skills Guide</button>
+        <div class="content">
+            <div class="content-inner">
+                <h3>ETAP Fundamentals for CB Testing</h3>
+                
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <strong>Understanding ETAP Basics</strong>
+                    <p>Essential ETAP concepts for breaker testing:</p>
+                    <ul>
+                        <li><strong>One-Line Diagram:</strong> Visual representation of your power system</li>
+                        <li><strong>Device Library:</strong> Database of circuit breakers, relays, transformers</li>
+                        <li><strong>TCC Curves:</strong> Time-Current Characteristic plots for coordination</li>
+                        <li><strong>Short Circuit Study:</strong> Calculates fault currents at each bus</li>
+                        <li><strong>Arc Flash Study:</strong> Determines incident energy and PPE requirements</li>
+                    </ul>
+                </div>
+
+                <h3>Skill 1: Building a Simple One-Line</h3>
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <strong>Create Your First Project</strong>
+                    <ol>
+                        <li>Open ETAP → <code>File > New Project</code></li>
+                        <li>Select template: <code>Industrial Plant</code></li>
+                        <li>Add components from toolbar:
+                            <ul>
+                                <li>Drag <strong>Utility</strong> (power source)</li>
+                                <li>Add <strong>Transformer</strong></li>
+                                <li>Place <strong>Circuit Breakers</strong> (this is your ACTAS-tested equipment)</li>
+                                <li>Connect with <strong>Buses</strong></li>
+                            </ul>
+                        </li>
+                        <li>Double-click each component to enter ratings</li>
+                    </ol>
+                </div>
+
+                <h3>Skill 2: Importing ACTAS Test Data</h3>
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <strong>Link Real Test Results to ETAP</strong>
+                    <p>After testing CB with ACTAS:</p>
+                    <ol>
+                        <li>Export from ACTAS: <code>Menu > Export > CSV Format</code></li>
+                        <li>Save file (example: CB-101_TimingData.csv)</li>
+                        <li>In ETAP, right-click your circuit breaker symbol</li>
+                        <li><code>Properties > Rating</code> tab</li>
+                        <li>Enter ACTAS-measured values:
+                            <ul>
+                                <li><strong>Interrupting Time:</strong> From ACTAS "Opening Time" (e.g., 35ms)</li>
+                                <li><strong>Contact Resistance:</strong> From ACTAS resistance test (e.g., 85µΩ)</li>
+                                <li><strong>Travel Distance:</strong> For arc duration calculations</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="tip">
+                    <strong>💡 Why This Matters:</strong> Default ETAP library uses manufacturer specs. Your ACTAS data shows ACTUAL performance, making studies accurate for YOUR equipment's real condition.
+                </div>
+
+                <h3>Skill 3: Running Short Circuit Analysis</h3>
+                <div class="step">
+                    <span class="step-number">4</span>
+                    <strong>Calculate Fault Currents</strong>
+                    <ol>
+                        <li>Top menu: <code>Study > Short-Circuit</code></li>
+                        <li>Select <code>ANSI</code> or <code>IEC</code> standard</li>
+                        <li>Click <code>Run Study</code></li>
+                        <li>Review results:
+                            <ul>
+                                <li><strong>3-Phase Fault:</strong> Highest current (symmetrical)</li>
+                                <li><strong>Line-Ground:</strong> Often highest for grounded systems</li>
+                                <li><strong>Verify:</strong> Fault current < CB interrupting rating</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="step">
+                    <strong>Using ACTAS Data in SC Study</strong>
+                    <p>Impact of real test data:</p>
+                    <ul>
+                        <li>Actual contact resistance affects voltage drop during fault</li>
+                        <li>Measured timing determines fault clearing time</li>
+                        <li>ETAP uses this for <code>I²t</code> let-through calculations</li>
+                        <li>Critical for cable sizing and equipment duty ratings</li>
+                    </ul>
+                </div>
+
+                <h3>Skill 4: Relay Coordination & TCC Curves</h3>
+                <div class="step">
+                    <span class="step-number">5</span>
+                    <strong>Creating Protection Coordination Study</strong>
+                    <ol>
+                        <li><code>Study > Star Protective Device Coordination</code></li>
+                        <li>Add protective devices (relays, fuses, CB trip units)</li>
+                        <li>ETAP plots all devices on same graph</li>
+                        <li>Check for proper <strong>Coordination Time Interval (CTI)</strong>:
+                            <ul>
+                                <li>Minimum 200ms between upstream/downstream curves</li>
+                                <li>Ensures downstream device clears fault first</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">6</span>
+                    <strong>Adjusting Relay Settings with ACTAS Data</strong>
+                    <p>Example scenario:</p>
+                    <ul>
+                        <li>ACTAS shows CB opening time = 35ms (vs 50ms spec)</li>
+                        <li>In ETAP: Right-click relay → <code>Modify Setting</code></li>
+                        <li>Add 35ms CB time to relay intentional delay</li>
+                        <li>Re-plot curves to verify coordination maintained</li>
+                        <li>Export settings back to physical relay</li>
+                    </ul>
+                </div>
+
+                <h3>Skill 5: Arc Flash Analysis</h3>
+                <div class="step">
+                    <span class="step-number">7</span>
+                    <strong>Calculate Incident Energy (IEEE 1584)</strong>
+                    <ol>
+                        <li><code>Study > Arc Flash Hazard</code></li>
+                        <li>ETAP calculates for each bus:
+                            <ul>
+                                <li><strong>Incident Energy (cal/cm²):</strong> Determines PPE level</li>
+                                <li><strong>Arc Flash Boundary:</strong> Safe approach distance</li>
+                                <li><strong>Fault Clearing Time:</strong> From your ACTAS-tested CB timing</li>
+                            </ul>
+                        </li>
+                        <li>Formula: <code>E = 4.184 × Cf × En × (t / D²)</code>
+                            <ul>
+                                <li><strong>t = ACTAS measured CB clearing time</strong></li>
+                                <li>Faster CB = lower incident energy = safer</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="warning">
+                    <strong>⚠ Real-World Impact:</strong> If ACTAS shows your CB takes 80ms (vs 50ms expected), arc flash energy increases by 60%. This changes PPE requirements on arc flash labels!
+                </div>
+
+                <h3>Skill 6: Maintenance Scheduling Integration</h3>
+                <div class="step">
+                    <span class="step-number">8</span>
+                    <strong>Predictive Maintenance with ETAP</strong>
+                    <ol>
+                        <li>Create baseline: Import initial ACTAS test data</li>
+                        <li>Set thresholds in ETAP:
+                            <ul>
+                                <li>Timing degradation >20%</li>
+                                <li>Contact resistance >150µΩ</li>
+                            </ul>
+                        </li>
+                        <li>After each ACTAS test, update ETAP model</li>
+                        <li>ETAP tracks trends: <code>Tools > Asset Management</code></li>
+                        <li>Generates alerts when CB approaches limits</li>
+                    </ol>
+                </div>
+
+                <h3>Skill 7: Advanced - Load Flow with CB Losses</h3>
+                <div class="step">
+                    <span class="step-number">9</span>
+                    <strong>Optimizing System Efficiency</strong>
+                    <p>Using ACTAS contact resistance data:</p>
+                    <ol>
+                        <li><code>Study > Load Flow Analysis</code></li>
+                        <li>ETAP calculates voltage drop across each CB</li>
+                        <li>Power loss = <code>I² × R</code> (R from ACTAS)</li>
+                        <li>Identify high-loss breakers for maintenance priority</li>
+                        <li>Calculate annual energy cost: <code>kW × 8760 hrs × $/kWh</code></li>
+                    </ol>
+                </div>
+
+                <h3>Training Roadmap: Beginner to Expert</h3>
+                <div class="step">
+                    <strong>Week 1-2: ETAP Basics</strong>
+                    <ul>
+                        <li>Navigate interface, create one-line diagrams</li>
+                        <li>Enter equipment ratings from nameplates</li>
+                        <li>Run simple short circuit study</li>
+                        <li><strong>Practice:</strong> Model your facility's main distribution</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <strong>Week 3-4: Integration Skills</strong>
+                    <ul>
+                        <li>Export ACTAS data, import to ETAP</li>
+                        <li>Update CB properties with test results</li>
+                        <li>Compare manufacturer specs vs actual performance</li>
+                        <li><strong>Practice:</strong> Create before/after comparison reports</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <strong>Month 2: Protection Studies</strong>
+                    <ul>
+                        <li>Build TCC curves, check coordination</li>
+                        <li>Adjust relay settings based on measured CB timing</li>
+                        <li>Run arc flash studies with real clearing times</li>
+                        <li><strong>Practice:</strong> Develop protection schemes for new equipment</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <strong>Month 3+: Advanced Analysis</strong>
+                    <ul>
+                        <li>Transient stability with CB switching times</li>
+                        <li>Motor starting studies with CB drop calculations</li>
+                        <li>Automated reporting linking ACTAS → ETAP → maintenance</li>
+                        <li><strong>Certification:</strong> Consider ETAP professional training</li>
+                    </ul>
+                </div>
+
+                <h3>Essential ETAP Resources</h3>
+                <div class="tip">
+                    <strong>Learning Materials:</strong>
+                    <ul>
+                        <li><strong>ETAP Help:</strong> Press F1 in software (comprehensive guides)</li>
+                        <li><strong>Video Tutorials:</strong> ETAP YouTube channel</li>
+                        <li><strong>Sample Projects:</strong> <code>File > Sample Projects</code> in ETAP</li>
+                        <li><strong>User Forum:</strong> etap.com/community</li>
+                        <li><strong>Training:</strong> ETAP offers 3-day certification courses</li>
+                    </ul>
+                </div>
+
+                <h3>Quick Reference: ACTAS → ETAP Data Mapping</h3>
+                <table class="spec-table">
+                    <tr>
+                        <td>ACTAS Output</td>
+                        <td>ETAP Input Field</td>
+                    </tr>
+                    <tr>
+                        <td>Opening Time (ms)</td>
+                        <td>CB Properties > Interrupting Time</td>
+                    </tr>
+                    <tr>
+                        <td>Contact Resistance (µΩ)</td>
+                        <td>CB Properties > Resistance</td>
+                    </tr>
+                    <tr>
+                        <td>Coil Current (A)</td>
+                        <td>Control Power > Inrush Current</td>
+                    </tr>
+                    <tr>
+                        <td>Travel Distance (mm)</td>
+                        <td>Arc Flash > Contact Separation</td>
+                    </tr>
+                    <tr>
+                        <td>Operating Energy (J)</td>
+                        <td>Maintenance > Operating Mechanism</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <button class="collapsible">Initial Setup & Configuration</button>
+        <div class="content">
+            <div class="content-inner">
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <strong>Power Up Sequence</strong>
+                    <p>Connect AC power (100-240V). Wait for POST (Power-On Self Test) completion. Verify all LED indicators show green status.</p>
+                </div>
+                
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <strong>Connect Test Leads</strong>
+                    <ul>
+                        <li>Main contacts: Red (A), Yellow (B), Blue (C) to CB terminals</li>
+                        <li>Auxiliary contacts: White leads to control circuit</li>
+                        <li>Travel sensor: Attach linear encoder to moving contact</li>
+                        <li>Coil connections: To trip/close coils with polarity marking</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <strong>Software Configuration</strong>
+                    <p>Navigate: <code>Menu > Settings > Test Configuration</code></p>
+                    <ul>
+                        <li>Set breaker type (ACB/MCCB/VCB/SF6)</li>
+                        <li>Input rated voltage and current</li>
+                        <li>Configure contact arrangement (3-pole/4-pole)</li>
+                        <li>Set travel sensor calibration (from CB datasheet)</li>
+                    </ul>
+                </div>
+
+                <div class="warning">
+                    <strong>⚠ Safety:</strong> Ensure breaker is de-energized. Verify zero voltage with multimeter. Ground all terminals before connection.
+                </div>
+            </div>
+        </div>
+
+        <button class="collapsible">Primary Testing Procedures</button>
+        <div class="content">
+            <div class="content-inner">
+                <h3>Timing Tests</h3>
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <strong>Contact Timing Analysis</strong>
+                    <ol>
+                        <li>Select <code>Tests > Timing Test</code></li>
+                        <li>Choose operation: CLOSE, OPEN, or C-O sequence</li>
+                        <li>Set coil voltage (80-110% of rated)</li>
+                        <li>Execute test - system captures:
+                            <ul>
+                                <li>Coil energization time</li>
+                                <li>Contact touch time per pole</li>
+                                <li>Contact separation time</li>
+                                <li>Pole discrepancy (max 3ms per IEC 62271)</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h3>Travel & Velocity Measurement</h3>
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <strong>Motion Analysis</strong>
+                    <p>Menu: <code>Tests > Travel Test</code></p>
+                    <ul>
+                        <li>System plots contact displacement vs time</li>
+                        <li>Calculates average/peak velocity (m/s)</li>
+                        <li>Measures over-travel and rebound</li>
+                        <li>Verifies against manufacturer specs (typically 3-7 m/s for VCB)</li>
+                    </ul>
+                </div>
+
+                <h3>Resistance Tests</h3>
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <strong>Contact Resistance (Ductor Test)</strong>
+                    <p>Select: <code>Tests > Resistance Test</code></p>
+                    <ul>
+                        <li>Applies 100A DC test current</li>
+                        <li>Measures micro-ohm resistance per pole</li>
+                        <li>Typical values: 30-100 µΩ (new), >200 µΩ indicates wear</li>
+                        <li>Tests at multiple current levels (20A, 50A, 100A)</li>
+                    </ul>
+                </div>
+
+                <h3>Coil Current Analysis</h3>
+                <div class="step">
+                    <span class="step-number">4</span>
+                    <strong>Operating Mechanism Testing</strong>
+                    <ol>
+                        <li><code>Tests > Coil Current</code></li>
+                        <li>Captures current waveform during operation</li>
+                        <li>Identifies: inrush current, holding current, decay time</li>
+                        <li>Detects mechanical binding (abnormal current spikes)</li>
+                        <li>Compare to baseline from commissioning data</li>
+                    </ol>
+                </div>
+
+                <div class="tip">
+                    <strong>💡 Best Practice:</strong> Perform 3 consecutive tests. Use average values. Investigate if variance >5%.
+                </div>
+            </div>
+        </div>
+
+        <button class="collapsible">ETAP Integration Workflow</button>
+        <div class="content">
+            <div class="content-inner">
+                <h3>Data Export for Power System Studies</h3>
+                
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <strong>Export Test Results</strong>
+                    <p>After completing tests: <code>Menu > Export > ETAP Format</code></p>
+                    <ul>
+                        <li>Select data: timing, travel, resistance, coil current</li>
+                        <li>Format: CSV or XML (ETAP-compatible)</li>
+                        <li>Save to USB or transfer via Ethernet</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <strong>Import to ETAP</strong>
+                    <p>In ETAP software:</p>
+                    <ol>
+                        <li>Open protection project</li>
+                        <li><code>Library > Import Device Data</code></li>
+                        <li>Select ACTAS C24 export file</li>
+                        <li>Map parameters:
+                            <ul>
+                                <li>Operating time → Relay TCC curves</li>
+                                <li>Contact resistance → I²R loss calculations</li>
+                                <li>Travel data → Arc energy studies</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h3>Relay Coordination Studies</h3>
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <strong>TCC Curve Generation</strong>
+                    <p>Use measured CB timing for accurate coordination:</p>
+                    <ul>
+                        <li>Input actual trip times from ACTAS tests</li>
+                        <li>Account for measured contact separation delays</li>
+                        <li>Update protective relay settings</li>
+                        <li>Verify CTI (Coordination Time Interval) ≥200ms</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">4</span>
+                    <strong>Short Circuit Analysis</strong>
+                    <p>ETAP Arc Flash module with ACTAS data:</p>
+                    <ol>
+                        <li>Import measured CB clearing times</li>
+                        <li>Calculate incident energy (E = 4.184 × Cf × En × t / D²)</li>
+                        <li>Update arc flash labels based on actual CB performance</li>
+                        <li>Model CB failure modes using degradation data</li>
+                    </ol>
+                </div>
+
+                <div class="tip">
+                    <strong>💡 ETAP Pro Tip:</strong> Create library entries for each tested CB. Update annually or after maintenance. Maintain traceability with ACTAS test report IDs.
+                </div>
+            </div>
+        </div>
+
+        <button class="collapsible">Advanced Testing Features</button>
+        <div class="content">
+            <div class="content-inner">
+                <h3>Multi-Shot Testing</h3>
+                <div class="step">
+                    <p><code>Tests > Sequential Operations</code></p>
+                    <ul>
+                        <li>Program: O-CO, CO-15s-CO patterns</li>
+                        <li>Tests mechanical endurance</li>
+                        <li>Monitors contact wear progression</li>
+                        <li>Auto-stops if parameters exceed limits</li>
+                    </ul>
+                </div>
+
+                <h3>Waveform Analysis</h3>
+                <div class="step">
+                    <p><code>Analysis > Waveform Viewer</code></p>
+                    <ul>
+                        <li>Zoom: cursor control timing measurements</li>
+                        <li>Overlay: compare multiple test runs</li>
+                        <li>FFT analysis: detect mechanical resonance</li>
+                        <li>Export to ETAP for transient studies</li>
+                    </ul>
+                </div>
+
+                <h3>Custom Test Scripts</h3>
+                <div class="step">
+                    <p><code>Menu > Programming > Custom Scripts</code></p>
+                    <p>Create automated test sequences for:</p>
+                    <ul>
+                        <li>Scheduled maintenance programs</li>
+                        <li>Acceptance testing per IEEE C37.09</li>
+                        <li>Commissioning checklists</li>
+                        <li>ETAP-driven test protocols</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <button class="collapsible">Maintenance & Calibration</button>
+        <div class="content">
+            <div class="content-inner">
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <strong>Daily Checks</strong>
+                    <ul>
+                        <li>Verify self-test passes on startup</li>
+                        <li>Check test lead continuity</li>
+                        <li>Inspect travel sensor cable for damage</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <strong>Annual Calibration</strong>
+                    <p>Required by ISO 17025. Perform:</p>
+                    <ul>
+                        <li>Timing accuracy: ±0.1ms verification</li>
+                        <li>Voltage source: ±0.5% accuracy check</li>
+                        <li>Current source: ±1% at 100A</li>
+                        <li>Travel sensor: mechanical calibration jig</li>
+                    </ul>
+                    <p>Send to KOCOS service center or authorized lab.</p>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <strong>Firmware Updates</strong>
+                    <ol>
+                        <li>Download from KOCOS support portal</li>
+                        <li><code>Menu > System > Firmware Update</code></li>
+                        <li>Load .bin file from USB</li>
+                        <li>Do not power off during update (5-10 min)</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <button class="collapsible">Troubleshooting Guide</button>
+        <div class="content">
+            <div class="content-inner">
+                <h3>Common Issues</h3>
+                
+                <div class="step">
+                    <strong>Error: "Contact Not Detected"</strong>
+                    <ul>
+                        <li>Check test lead connections - must be tight</li>
+                        <li>Verify breaker contacts are clean (no oxidation)</li>
+                        <li>Increase detection threshold: <code>Settings > Sensitivity</code></li>
+                        <li>Test with auxiliary contacts if main contact access limited</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <strong>Error: "Travel Sensor Out of Range"</strong>
+                    <ul>
+                        <li>Recalibrate sensor zero position</li>
+                        <li>Check encoder cable for crimps/breaks</li>
+                        <li>Verify mounting - sensor must move linearly with contact</li>
+                        <li>Consult CB manual for actual travel distance</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <strong>Inconsistent Results</strong>
+                    <ul>
+                        <li>Allow 30s between tests (capacitor discharge)</li>
+                        <li>Check ambient temperature (±20°C affects timing)</li>
+                        <li>Verify coil voltage stability (use battery eliminator)</li>
+                        <li>Perform CB maintenance if contact erosion suspected</li>
+                    </ul>
+                </div>
+
+                <div class="warning">
+                    <strong>⚠ Critical:</strong> If timing changes >20% or resistance >2x baseline, DO NOT return CB to service. Investigate before re-energizing.
+                </div>
+            </div>
+        </div>
+
+        <button class="collapsible">Report Generation & Documentation</button>
+        <div class="content">
+            <div class="content-inner">
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <strong>Auto-Report Creation</strong>
+                    <p><code>Menu > Reports > Generate</code></p>
+                    <p>Includes:</p>
+                    <ul>
+                        <li>All test parameters and results</li>
+                        <li>Pass/Fail status vs set limits</li>
+                        <li>Waveform plots and travel curves</li>
+                        <li>Comparison to baseline/previous tests</li>
+                        <li>Technician notes and observations</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <strong>ETAP Documentation Integration</strong>
+                    <ul>
+                        <li>Attach ACTAS PDF reports to ETAP device records</li>
+                        <li>Link test data to maintenance schedules</li>
+                        <li>Track CB health trending over time</li>
+                        <li>Generate predictive maintenance alerts</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <strong>Compliance Documentation</strong>
+                    <p>Reports meet standards:</p>
+                    <ul>
+                        <li>IEC 62271-100: High-voltage switchgear</li>
+                        <li>IEEE C37.09: Test procedures for AC CBs</li>
+                        <li>NFPA 70B: Maintenance recommendations</li>
+                        <li>NETA ATS: Acceptance testing specs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Quick Reference</h2>
+            <h3>Typical Test Values</h3>
+            <table class="spec-table">
+                <tr>
+                    <td>ACB Operating Time</td>
+                    <td>30-60 ms (CLOSE), 20-50 ms (OPEN)</td>
+                </tr>
+                <tr>
+                    <td>VCB Operating Time</td>
+                    <td>50-80 ms (CLOSE), 20-40 ms (OPEN)</td>
+                </tr>
+                <tr>
+                    <td>SF6 CB Operating Time</td>
+                    <td>60-100 ms (CLOSE), 40-80 ms (OPEN)</td>
+                </tr>
+                <tr>
+                    <td>Contact Resistance</td>
+                    <td><100 µΩ (good), 100-200 µΩ (monitor), >200 µΩ (service)</td>
+                </tr>
+                <tr>
+                    <td>Pole Discrepancy</td>
+                    <td>≤3 ms (IEC), ≤2 ms (IEEE)</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Support Resources</h2>
+            <p><strong>KOCOS Technical Support:</strong> +43 7612 63350</p>
+            <p><strong>Email:</strong> support@kocos.com</p>
+            <p><strong>Documentation:</strong> www.kocos.com/downloads</p>
+            <p><strong>ETAP Integration Guide:</strong> Available in ETAP Knowledge Base</p>
+        </div>
+    </div>
+
+    <script>
+        const coll = document.getElementsByClassName("collapsible");
+        for (let i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                const content = this.nextElementSibling;
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
